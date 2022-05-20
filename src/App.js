@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomInputNumber from '../components/CustomInputNumber'
+import RoomAllocation from '../components/RoomAllocation'
 
 function App() {
   function onChange(event) {
@@ -22,7 +23,14 @@ function App() {
         step={3}
         onChange={(event) => onChange(event)}
         onBlur={(event) => onBlur(event)}
-      ></CustomInputNumber>
+      />
+      <hr />
+      <RoomAllocation
+        guest={10}
+        room={3}
+        onChange={(result) => console.log('onChange result', result)}
+        onBlur={(result) => console.log('onBlur result', result)}
+      />
     </div>
   )
 }

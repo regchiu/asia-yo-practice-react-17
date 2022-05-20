@@ -1,0 +1,49 @@
+.room-alloction {
+  display: block;
+  padding: 20px;
+  max-width: 720px;
+  border: 1px dashed;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #262626;
+}
+
+.subtitle1 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.subtitle2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8c8c8c;
+}
+
+.banner {
+  padding: 20px;
+  border-radius: 6px;
+  color: #595959;
+  background-color: #f1fdff;
+  border: 1px solid #d2edf7;
+  font-weight: 700;
+}
+
+.banner--error {
+  color: #e53935;
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.mt20 {
+  margin-top: 20px;
+}

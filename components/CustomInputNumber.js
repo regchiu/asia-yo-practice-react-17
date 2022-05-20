@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './CustomInputNumber.css'
 
-function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled, onChange, onBlur }) {
+function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled = false, onChange, onBlur }) {
   const inputRef = useRef(null)
   const [innerValue, setInnerValue] = useState(value)
+  const [disabledIncrease, setDisabledIncrease] = useState(disabled)
+  const [disabledDecrease, setDisabledDecrease] = useState(disabled)
   const timer = useRef(null)
 
   useEffect(() => {
@@ -15,6 +17,20 @@ function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled, onCh
       },
     })
   })
+
+  useEffect(() => {
+    setDisabledIncrease(disabled)
+    if (innerValue === max) {
+      setDisabledIncrease(true)
+    }
+  }, [disabled, innerValue, max])
+
+  useEffect(() => {
+    setDisabledDecrease(disabled)
+    if (innerValue === min) {
+      setDisabledDecrease(true)
+    }
+  }, [disabled, innerValue, min])
 
   function increase() {
     setInnerValue((prev) => {
@@ -67,7 +83,6 @@ function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled, onCh
   }
 
   function handleChange(event) {
-    event.target.value = Number(event.target.value)
     setInnerValue(Number(event.target.value))
   }
 
@@ -82,7 +97,7 @@ function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled, onCh
     <div className="custom-input-number">
       <button
         className="btn"
-        disabled={disabled}
+        disabled={disabledDecrease}
         onClick={() => decrease()}
         onMouseDown={() => handleMouseDown('-')}
         onMouseLeave={() => clearTimer()}
@@ -105,7 +120,7 @@ function CustomInputNumber({ min, max, step = 1, value = 0, name, disabled, onCh
       />
       <button
         className="btn"
-        disabled={disabled}
+        disabled={disabledIncrease}
         onClick={() => increase()}
         onMouseDown={() => handleMouseDown('+')}
         onMouseLeave={() => clearTimer()}
