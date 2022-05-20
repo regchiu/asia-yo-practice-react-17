@@ -1,0 +1,44 @@
+.custom-input-number{
+  display: block;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.input-number[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-number, 
+.btn {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+.input-number {
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid #037dd6;
+  color:#037dd6;
+  background-color: #ffffff;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.input-number[disabled],
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
