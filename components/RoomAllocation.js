@@ -108,9 +108,6 @@ function RoomAllocation({ guest, room, onChange, onBlur }) {
 
   function isValidGuest() {
     return guest <= room * ROOM_CAPACITY
-    // if (!isValidGuest) {
-    //   return new Error(`The number of ${propName} can not exceed the room capacity`)
-    // }
   }
 
   function calculateRemaining() {
