@@ -115,7 +115,9 @@ function RoomAllocation({ guest, room, onChange, onBlur }) {
     const sumOfChild = guestRooms.map((guestRoom) => guestRoom.child).reduce((acc, curr) => acc + curr)
     if (sumOfAdult + sumOfChild >= guest) {
       setRemaining(0)
-      setDisabled(true)
+      if (guestRooms.every((guestRoom) => guestRoom.adult <= ROOM_CAPACITY && guestRoom.child <= ROOM_CAPACITY)) {
+        setDisabled(true)
+      }
     } else {
       setRemaining(guest - (sumOfAdult + sumOfChild))
       setDisabled(false)
